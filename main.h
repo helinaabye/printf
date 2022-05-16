@@ -1,5 +1,6 @@
 #ifndef MAIN_H
 #define MAIN_H
+#include <stdint.h>
 int _strlen(const char *s, int flag);
 void unsigned_integer_to_string(uint64_t integer, int base,
 	int capitalflag, char *buffer);
