@@ -129,13 +129,16 @@ void v_printf(const char *format, va_list args)
 				putchar(ch);
 				break;
 			case 's':
+			{
 				s = va_arg(args, const char *);
 				while (*s)
 				{
 					putchar(*s++);
 				}
 				break;
+			}
 			case '%':
+			{
 				putchar('%');
 				break;
 			}
