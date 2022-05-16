@@ -1,6 +1,6 @@
 #ifndef MAIN_H
 #define MAIN_H
-
+#include <stdint.h>
 #include <stdarg.h>
 int _putchar(char c);
 int _strlen(const char *s, int flag);
