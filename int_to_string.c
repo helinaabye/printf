@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdint.h>
+
 #include "main.h"
 
 /**
@@ -11,7 +11,7 @@
  * Return: returns nothing
  */
 
-void unsigned_integer_to_string(uint64_t integer, int base,
+void unsigned_integer_to_string(int integer, int base,
 				 int capitalflag, char *buffer)
 {
 	int i, digit, cur = 0;
@@ -57,7 +57,7 @@ void unsigned_integer_to_string(uint64_t integer, int base,
  * Return: returns nothing
  */
 
-void signed_integer_to_string(int64_t integer, int base,
+void signed_integer_to_string(int integer, int base,
 			       int capitalflag, char *buffer)
 {
 	if (integer < 0)
