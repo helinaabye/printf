@@ -34,7 +34,7 @@ void switchFunction(const char *format, va_list args)
 	}
 	case 'd':
 	{
-		num = va_arg(args, int)
+		num = va_arg(args, int);
 		signed_integer_to_string(num, 10, isCapital, buffer);
 		for (i = 0; buffer[i]; i++)
 			_putchar(buffer[i]);
@@ -42,7 +42,7 @@ void switchFunction(const char *format, va_list args)
 	}
 	case 'i':
 	{
-	    signed_integer_to_string(va_arg(args, int), 10, isCapital, buffer);
+		signed_integer_to_string(va_arg(args, int), 10, isCapital, buffer);
 		for (i = 0; buffer[i]; i++)
 			_putchar(buffer[i]);
 		break;
