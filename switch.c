@@ -12,7 +12,7 @@
 void switchFunction(const char *format, va_list args)
 {
 	int i, num, isCapital = 1;
-	char ch, buffer[1024];
+	char ch, buffer[65];
 	const char *s;
 
 	switch (*format)
