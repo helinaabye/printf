@@ -39,7 +39,7 @@ int main(void)
 	len2 = printf("Percent:[%%]\n");
 	_printf("Len:[%d]\n", len);
 	printf("Len:[%d]\n", len2);
-	
+	_printf("%s %s %c", "Hello", "Hello", "a");
 	_printf("%s", "This sentence is retrieved from va_args!\n");
 	/*_printf("Unknown:[%r]\n");
 	printf("Unknown:[%r]\n");*/
