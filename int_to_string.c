@@ -11,7 +11,7 @@
  * Return: returns nothing
  */
 
-void unsigned_integer_to_string(unint64_t integer, int base,
+void unsigned_integer_to_string(uint64_t integer, int base,
 				 int capitalflag, char *buffer)
 {
 	int i, digit, cur = 0;
