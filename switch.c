@@ -14,38 +14,38 @@ void switchFunction(const char *format, va_list args)
 
 	switch (*format)
 	{
-	case 'c':
-	{
-		ch = va_arg(args, int);
-		_putchar(ch);
-		break;
-	}
-	case 's':
-	{
-		s = va_arg(args, const char *);
-		while (*s)
-			_putchar(*s++);
-		break;
-	}
-	case '%':
-	{
-		_putchar('%');
-		break;
-	}
-	case 'd':
-	{
-		num = va_arg(args, int);
-		signed_integer_to_string(num, 10, isCapital, buffer);
-		for (i = 0; buffer[i]; i++)
-			_putchar(buffer[i]);
-		break;
-	}
-	case 'i':
-	{
-		signed_integer_to_string(va_arg(args, int), 10, isCapital, buffer);
-		for (i = 0; buffer[i]; i++)
-			_putchar(buffer[i]);
-		break;
-	}
+		case 'c':
+		{
+			ch = va_arg(args, int);
+			_putchar(ch);
+			break;
+		}
+		case 's':
+		{
+			s = va_arg(args, const char *);
+			while (*s)
+				_putchar(*s++);
+			break;
+		}
+		case '%':
+		{
+			_putchar('%');
+			break;
+		}
+		case 'd':
+		{
+			num = va_arg(args, int);
+			signed_integer_to_string(num, 10, isCapital, buffer);
+			for (i = 0; buffer[i]; i++)
+				_putchar(buffer[i]);
+			break;
+		}
+		case 'i':
+		{
+			signed_integer_to_string(va_arg(args, int), 10, isCapital, buffer);
+			for (i = 0; buffer[i]; i++)
+				_putchar(buffer[i]);
+			break;
+		}
 	}
 }
