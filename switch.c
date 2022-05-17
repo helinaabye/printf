@@ -1,5 +1,4 @@
 #include <stdarg.h>
-#include <stdio.h>
 #include "main.h"
 /**
  * switchFunction - switchs cases of format specifiers
@@ -9,7 +8,7 @@
  */
 void switchFunction(const char *format, va_list args)
 {
-	int i, num = va_arg(args, int), isCapital = 1;
+	int i, num, isCapital = 1;
 	char ch, buffer[65];
 	const char *s;
 
@@ -35,6 +34,7 @@ void switchFunction(const char *format, va_list args)
 	}
 	case 'd':
 	{
+		num = va_arg(args, int)
 		signed_integer_to_string(num, 10, isCapital, buffer);
 		for (i = 0; buffer[i]; i++)
 			_putchar(buffer[i]);
@@ -42,7 +42,7 @@ void switchFunction(const char *format, va_list args)
 	}
 	case 'i':
 	{
-		signed_integer_to_string(num, 10, isCapital, buffer);
+	    signed_integer_to_string(va_arg(args, int), 10, isCapital, buffer);
 		for (i = 0; buffer[i]; i++)
 			_putchar(buffer[i]);
 		break;
