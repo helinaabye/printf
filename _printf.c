@@ -11,7 +11,7 @@
 
 int _printf(const char *format, ...)
 {
-	int noSpecifier = 1, isPercentage = 0;
+	int noSpecifier = 1, length = 0, isPercentage = 0;
 	const char *s = format, *s1 = format;
 	va_list args;
 
@@ -41,10 +41,13 @@ int _printf(const char *format, ...)
 			_putchar(*s);
 			s++;
 		}
-		_strlen(format, isPercentage);
 	}
-	if (isPercentage == 1)
-		_strlen(format, isPercentage);
+
 	va_end(args);
-	return (_strlen(format, isPercentage));
+	for (length = 0; *format != '\0'; format++)
+		length++;
+	if (isPercentage)
+		return (length - 1);
+	else
+		return (length);
 }
