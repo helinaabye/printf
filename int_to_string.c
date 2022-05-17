@@ -23,7 +23,7 @@ void unsigned_integer_to_string(uint64_t integer, int base,
 		*buffer = 0;
 		return;
 	}
-	for (i = 0; i < 65; i++)
+	for (i = 0; i < 64; i++)
 		_buffer[i] = 0;
 	while (integer)
 	{
