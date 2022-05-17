@@ -11,7 +11,7 @@
  * Return: returns nothing
  */
 
-void unsigned_integer_to_string(unsigned int integer, int base,
+void unsigned_integer_to_string(unint64_t integer, int base,
 				 int capitalflag, char *buffer)
 {
 	int i, digit, cur = 0;
@@ -23,7 +23,7 @@ void unsigned_integer_to_string(unsigned int integer, int base,
 		*buffer = 0;
 		return;
 	}
-	for (i = 0; i < 65; i++)
+	for (i = 0; i < 1024; i++)
 		_buffer[i] = 0;
 	while (integer)
 	{
@@ -57,7 +57,7 @@ void unsigned_integer_to_string(unsigned int integer, int base,
  * Return: returns nothing
  */
 
-void signed_integer_to_string(int integer, int base,
+void signed_integer_to_string(int64_t integer, int base,
 			       int capitalflag, char *buffer)
 {
 	if (integer < 0)
