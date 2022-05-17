@@ -1,6 +1,6 @@
 #include "main.h"
 #include <unistd.h>
-#include <stdio.h>
+
 
 /**
  * _putchar - writes the character c to stdout
@@ -13,7 +13,7 @@
 int _putchar(char c)
 {
 
-	putchar(c);
+	return (write(1, &c, 1));
 /*
 	static char buf[1024];
 	static int i;
@@ -28,6 +28,7 @@ int _putchar(char c)
 		buf[i] = c;
 		i++;
 	}
-*/
+
 	return (1);
+*/
 }
