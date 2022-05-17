@@ -9,6 +9,6 @@ void unsigned_integer_to_string(uint64_t integer, int base,
 void signed_integer_to_string(int64_t integer, int base,
 	int capitalflag, char *buffer);
 void v_printf(const char *format, va_list args);
-void switchFunction (const char *format, va_list args);
+void switchFunction(const char *format, va_list args);
 int _printf(const char *format, ...);
 #endif /*#ifndef MAIN_H*/
