@@ -123,7 +123,6 @@ void switchFunction(const char *format, va_list args)
  * @format: is a character string
  * @args: takes in list of arguments
  * Return: returns nothing
-
  */
 
 void v_printf(const char *format, va_list args)
