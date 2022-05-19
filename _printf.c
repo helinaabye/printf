@@ -14,7 +14,7 @@
 void unsigned_integer_to_string(uint64_t integer, int base, char *buffer)
 {
 	int i, digit, cur = 0;
-	char _buffer[65];
+	char _buffer[49];
 
 	if (integer == 0)
 	{
@@ -22,7 +22,7 @@ void unsigned_integer_to_string(uint64_t integer, int base, char *buffer)
 		*buffer = 0;
 		return;
 	}
-	for (i = 0; i < 65; i++)
+	for (i = 0; i < 49; i++)
 		_buffer[i] = 0;
 	while (integer)
 	{
