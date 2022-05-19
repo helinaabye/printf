@@ -14,7 +14,7 @@
 void unsigned_integer_to_string(uint64_t integer, int base, char *buffer)
 {
 	int i, digit, cur = 0;
-	char _buffer[49];
+	char _buffer[50];
 
 	if (integer == 0)
 	{
@@ -22,7 +22,7 @@ void unsigned_integer_to_string(uint64_t integer, int base, char *buffer)
 		*buffer = 0;
 		return;
 	}
-	for (i = 0; i < 49; i++)
+	for (i = 0; i < 50; i++)
 		_buffer[i] = 0;
 	while (integer)
 	{
@@ -78,7 +78,7 @@ void signed_integer_to_string(int64_t integer, int base, char *buffer)
 void switchFunction(const char *format, va_list args)
 {
 	int i;
-	char buffer[49];
+	char buffer[50];
 	const char *s;
 
 	switch (*format)
