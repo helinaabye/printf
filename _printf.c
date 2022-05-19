@@ -78,7 +78,7 @@ void signed_integer_to_string(int64_t integer, int base, char *buffer)
 void switchFunction(const char *format, va_list args)
 {
 	int i;
-	char buffer[65];
+	char buffer[49];
 	const char *s;
 
 	switch (*format)

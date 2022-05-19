@@ -23,7 +23,7 @@ int main(void)
 	printf("String:[%s]\n", "I am a string !");
 	_printf("Negative:[%d]\n", -762534);
 	printf("Negative:[%d]\n", -762534);
-	printf("%s %s %c %s %i %d %%\n", "Hello", "World", 'a', "ggggg", 9, 7);
+	_printf("%s %s %c %s %i %d %%\n", "Hello", "World", 'a', "ggggg", 9, 7);
 
 	return (0);
 }
