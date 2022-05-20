@@ -14,7 +14,7 @@
 void unsigned_integer_to_string(uint64_t integer, int base, char *buffer)
 {
 	int i, digit, cur = 0;
-	char _buffer[50];
+	char _buffer[40];
 
 	if (integer == 0)
 	{
@@ -22,7 +22,7 @@ void unsigned_integer_to_string(uint64_t integer, int base, char *buffer)
 		*buffer = 0;
 		return;
 	}
-	for (i = 0; i < 50; i++)
+	for (i = 0; i < 40; i++)
 		_buffer[i] = 0;
 	while (integer)
 	{
@@ -77,8 +77,6 @@ void signed_integer_to_string(int64_t integer, int base, char *buffer)
 
 void switchFunction(const char *format, va_list args)
 {
-	int i;
-	char buffer[50];
 	const char *s;
 
 	switch (*format)
@@ -90,33 +88,25 @@ void switchFunction(const char *format, va_list args)
 	{
 		s = va_arg(args, const char *);
 		while (*s)
-		{
 			_putchar(*s++);
-		}
 		break;
 	}
 	case '%':
 		_putchar('%');
 		break;
 	case 'd':
-	{
-		signed_integer_to_string((va_arg(args, int)), 10, buffer);
-		for (i = 0; buffer[i]; i++)
-			_putchar(buffer[i]);
+		printBuffer(10, args);
 		break;
-	}
 	case 'i':
-	{
-		signed_integer_to_string((va_arg(args, int)), 10, buffer);
-		for (i = 0; buffer[i]; i++)
-			_putchar(buffer[i]);
+		printBuffer(10, args);
 		break;
-	}
+	case 'b':
+		printBuffer(2, args);
+		break;
 	default:
-		break;
+	break;
 	}
 }
-
 /**
  * v_printf - checks if a percentage specifier is
  *            there and prints
