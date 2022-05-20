@@ -28,17 +28,11 @@ void unsigned_integer_to_string(uint64_t integer, int base, char *buffer)
 	{
 		digit = integer % base;
 		if (digit >= 10)
-		{
 			_buffer[cur++] = 'a' + (digit - 10);
-		}
 		else if (digit >= 10)
-		{
 			_buffer[cur++] = 'A' + (digit - 10);
-		}
 		else
-		{
 			_buffer[cur++] = '0' + digit;
-		}
 		integer /= base;
 	}
 
