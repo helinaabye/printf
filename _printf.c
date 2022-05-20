@@ -11,10 +11,11 @@
  * Return: returns nothing
  */
 
-void unsigned_integer_to_string(uint64_t integer, int base, char *buffer)
+void unsigned_integer_to_string (uint64_t integer, int base,
+				 int capitalFlag, char *buffer)
 {
 	int i, digit, cur = 0;
-	char _buffer[40];
+	char _buffer[65];
 
 	if (integer == 0)
 	{
@@ -22,14 +23,14 @@ void unsigned_integer_to_string(uint64_t integer, int base, char *buffer)
 		*buffer = 0;
 		return;
 	}
-	for (i = 0; i < 40; i++)
+	for (i = 0; i < 65; i++)
 		_buffer[i] = 0;
 	while (integer)
 	{
 		digit = integer % base;
-		if (digit >= 10)
+		if (digit >= 10 && capitalFlag == 0)
 			_buffer[cur++] = 'a' + (digit - 10);
-		else if (digit >= 10)
+		else if (digit >= 10 && capitalFlag == 1)
 			_buffer[cur++] = 'A' + (digit - 10);
 		else
 			_buffer[cur++] = '0' + digit;
@@ -50,14 +51,15 @@ void unsigned_integer_to_string(uint64_t integer, int base, char *buffer)
  * Return: returns nothing
  */
 
-void signed_integer_to_string(int64_t integer, int base, char *buffer)
+void signed_integer_to_string (int64_t integer, int base,
+			       int capitalFlag, char *buffer)
 {
 	if (integer < 0)
 	{
 		*buffer++ = '-';
 		integer = -integer;
 	}
-	unsigned_integer_to_string(integer, base, buffer);
+	unsigned_integer_to_string (integer, base, capitalFlag, buffer);
 }
 
 /**
@@ -71,7 +73,7 @@ void signed_integer_to_string(int64_t integer, int base, char *buffer)
 
 void switchFunction(const char *format, va_list args)
 {
-	const char *s;
+	int isCapital = 1;
 
 	switch (*format)
 	{
@@ -79,23 +81,34 @@ void switchFunction(const char *format, va_list args)
 		_putchar((va_arg(args, int)));
 		break;
 	case 's':
-	{
-		s = va_arg(args, const char *);
-		while (*s)
-			_putchar(*s++);
+		printBuffer(10, *format, isCapital, args);
 		break;
-	}
 	case '%':
 		_putchar('%');
 		break;
 	case 'd':
-		printBuffer(10, args);
+		printBuffer(10, *format, isCapital, args);
 		break;
 	case 'i':
-		printBuffer(10, args);
+		printBuffer(10, *format, isCapital, args);
 		break;
 	case 'b':
-		printBuffer(2, args);
+		printBuffer(2, *format, isCapital, args);
+		break;
+	case 'u':
+		printBuffer(10, *format, isCapital, args);
+		break;
+	case 'o':
+		printBuffer(8, *format, isCapital, args);
+		break;
+	case 'x':
+	{
+		isCapital = 0;
+		printBuffer(16, *format, isCapital, args);
+		break;
+	}
+	case 'X':
+		printBuffer(16, *format, isCapital, args);
 		break;
 	default:
 	break;
@@ -165,11 +178,7 @@ int _printf(const char *format, ...)
 	else
 	{
 		while (*s)
-		{
-			_putchar(*s);
-			s++;
-		}
-		_strlen(format, isPercentage);
+			_putchar(*s++);
 	}
 	va_end(args);
 	for (length = 0; *format != '\0'; format++)
